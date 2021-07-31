@@ -35,9 +35,9 @@ Webot = Client(
 @Webot.on_message(filters.private & ~filters.bot & ~filters.command("help") & ~filters.command("start") & ~filters.command("s"))
 async def song(client, message):
  #ImJanindu #JEBotZ
-    cap = "@WarBotZ"
+    cap = "Join @MirchiSupport 😉"
     url = message.text
-    rkp = await message.reply("Processing...")
+    rkp = await message.reply("🤞Processing...")
     search = SearchVideos(url, offset=1, mode="json", max_results=1)
     test = search.result()
     p = json.loads(test)
@@ -69,7 +69,7 @@ async def song(client, message):
         }
         song = True
     try:
-        await rkp.edit("Downloading...")
+        await rkp.edit("Downloading...😎")
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:
@@ -153,7 +153,7 @@ async def song(client, message):
         }
         song = True
     try:
-        await rkp.edit("Downloading...")
+        await rkp.edit("Downloading...😎")
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:
@@ -187,7 +187,7 @@ async def song(client, message):
         return
     time.time()
     if song:
-        await rkp.edit("Uploading...") #Itsmelegend
+        await rkp.edit("Uploading...😉") #Itsmelegend
         lol = "./thumb.jpg"
         lel = await message.reply_audio(
                  f"{rip_data['id']}.mp3",
@@ -204,15 +204,17 @@ async def start(client, message):
    if message.chat.type == 'private':
        await Webot.send_message(
                chat_id=message.chat.id,
-               text="""<b>Hey There, I'm a Song Downloader Bot. A bot by @WarBotZ.
+               text="""<b>Yo...I am Mirchi Song Bot
 
-Hit help button to find out more about how to use me</b>""",   
+Use Me To Get Your Favourite Song On The Go.
+
+Need Help Hit /help </b>""",   
                             reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Help", callback_data="help"),
+                                            "Help🤔", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "Support Group", url="https://t.me/camila_support")
+                                            "Support Group👀", url="https://t.me/MirchiSupport")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -223,11 +225,11 @@ Hit help button to find out more about how to use me</b>""",
 
        await Webot.send_message(
                chat_id=message.chat.id,
-               text="""<b>Song Downloader Is Online.\n\n</b>""",   
+               text="""<b>Hey I Am Online...\n\n</b>""",   
                             reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Help", callback_data="help")
+                                            "Need Help👀", callback_data="help")
                                         
                                     ]]
                             ),        
@@ -243,13 +245,13 @@ async def help(client, message):
                chat_id=message.chat.id,
                text="""<b>Send a song name to download song
 
-@WarBotZ</b>""",
+@MirchiSupport</b>""",
             reply_to_message_id=message.message_id
         )
     else:
         await Jebot.send_message(
                chat_id=message.chat.id,
-               text="<b>Song Downloader Help.\n\nSyntax: `/song guleba`</b>",
+               text="<b>Song Downloader Help.\n\nSyntax: `/song gulaba`</b>",
             reply_to_message_id=message.message_id
         )     
         
@@ -264,8 +266,6 @@ async def button(Jebot, update):
 print(
     """
 Bot Started!
-
-Join @camilla_support
 """
 )
 
